@@ -28,4 +28,4 @@ module.exports = function(obj, compare) {
   return result;
 };
 
-//# sourceMappingURL=../../map/src/sortObject.map
+//# sourceMappingURL=map/sortObject.map

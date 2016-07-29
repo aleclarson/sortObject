@@ -1,7 +1,7 @@
 {
   "name": "sortObject",
   "version": "1.0.0",
-  "main": "js/src/sortObject",
+  "main": "js/sortObject",
   "dependencies": {
     "PureObject": "aleclarson/PureObject#1.0.0",
     "assertType": "aleclarson/assertType#2.0.0",

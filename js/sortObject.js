@@ -1,4 +1,4 @@
-var PureObject, SortedArray, assertType, isType;
+var Objectlike, PureObject, SortedArray, Typle, assertType;
 
 SortedArray = require("sorted-array");
 
@@ -6,11 +6,13 @@ PureObject = require("PureObject");
 
 assertType = require("assertType");
 
-isType = require("isType");
+Typle = require("Typle");
+
+Objectlike = Typle([Object, PureObject]);
 
 module.exports = function(obj, compare) {
   var i, key, len, pairs, ref, ref1, result, value;
-  assertType(obj, [Object, PureObject]);
+  assertType(obj, Objectlike);
   pairs = SortedArray([], compare);
   for (key in obj) {
     value = obj[key];
@@ -19,7 +21,7 @@ module.exports = function(obj, compare) {
       value: value
     });
   }
-  result = isType(obj, PureObject) ? Object.create(null) : {};
+  result = PureObject.test(obj) ? Object.create(null) : {};
   ref = pairs.array;
   for (i = 0, len = ref.length; i < len; i++) {
     ref1 = ref[i], key = ref1.key, value = ref1.value;

@@ -4,8 +4,8 @@
   "main": "js/sortObject",
   "dependencies": {
     "PureObject": "aleclarson/PureObject#1.0.0",
+    "Typle": "aleclarson/Typle#1.0.0",
     "assertType": "aleclarson/assertType#2.0.0",
-    "isType": "aleclarson/isType#1.0.0",
     "sorted-array": "aleclarson/sorted-array#2.0.0"
   },
   "lotus": {

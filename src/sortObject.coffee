@@ -15,12 +15,15 @@ module.exports = (obj, compare = defaultCompare) ->
   assertType obj, Objectlike
 
   pairs = SortedArray [], compare
-  pairs.insert { key, value } for key, value of obj
+  for key, value of obj
+    pairs.insert {key, value}
 
-  result =
+  clone =
     if PureObject.test obj
       Object.create null
     else {}
 
-  result[key] = value for { key, value } in pairs.array
-  return result
+  for {key, value} in pairs.array
+    clone[key] = value
+
+  return clone

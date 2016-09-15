@@ -6,8 +6,11 @@ Typle = require "Typle"
 
 Objectlike = Typle [ Object, PureObject ]
 
-# TODO: Implement this more efficiently?
-module.exports = (obj, compare) ->
+defaultCompare = (a, b) ->
+  if a.key > b.key
+  then 1 else -1
+
+module.exports = (obj, compare = defaultCompare) ->
 
   assertType obj, Objectlike
 

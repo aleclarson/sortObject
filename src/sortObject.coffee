@@ -2,20 +2,28 @@
 SortedArray = require "sorted-array"
 PureObject = require "PureObject"
 assertType = require "assertType"
-isType = require "isType"
+Typle = require "Typle"
 
-# TODO: Implement this more efficiently?
-module.exports = (obj, compare) ->
+Objectlike = Typle [ Object, PureObject ]
 
-  assertType obj, [ Object, PureObject ]
+defaultCompare = (a, b) ->
+  if a.key > b.key
+  then 1 else -1
+
+module.exports = (obj, compare = defaultCompare) ->
+
+  assertType obj, Objectlike
 
   pairs = SortedArray [], compare
-  pairs.insert { key, value } for key, value of obj
+  for key, value of obj
+    pairs.insert {key, value}
 
-  result =
-    if isType obj, PureObject
+  clone =
+    if PureObject.test obj
       Object.create null
     else {}
 
-  result[key] = value for { key, value } in pairs.array
-  return result
+  for {key, value} in pairs.array
+    clone[key] = value
+
+  return clone

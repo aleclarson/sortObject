@@ -12,7 +12,7 @@
   "dependencies": {
     "PureObject": "aleclarson/PureObject#1.0.1",
     "Typle": "aleclarson/Typle#1.0.1",
-    "assertType": "aleclarson/assertType#2.0.1",
-    "sorted-array": "aleclarson/sorted-array#2.0.1"
+    "SortedArray": "aleclarson/SortedArray#2.1.0",
+    "assertType": "aleclarson/assertType#2.0.1"
   }
 }

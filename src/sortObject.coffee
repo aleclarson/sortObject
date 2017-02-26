@@ -1,5 +1,5 @@
 
-SortedArray = require "sorted-array"
+SortedArray = require "SortedArray"
 PureObject = require "PureObject"
 assertType = require "assertType"
 Typle = require "Typle"

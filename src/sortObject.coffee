@@ -2,17 +2,14 @@
 SortedArray = require "SortedArray"
 PureObject = require "PureObject"
 assertType = require "assertType"
-Typle = require "Typle"
+Either = require "Either"
 
-Objectlike = Typle [ Object, PureObject ]
+Sortable = Either Object, PureObject
 
-defaultCompare = (a, b) ->
-  if a.key > b.key
-  then 1 else -1
+module.exports =
+sortObject = (obj, compare = defaultCompare) ->
 
-module.exports = (obj, compare = defaultCompare) ->
-
-  assertType obj, Objectlike
+  assertType obj, Sortable
 
   pairs = SortedArray [], compare
   for key, value of obj
@@ -20,10 +17,14 @@ module.exports = (obj, compare = defaultCompare) ->
 
   clone =
     if PureObject.test obj
-      Object.create null
+    then Object.create null
     else {}
 
   for {key, value} in pairs.array
     clone[key] = value
 
   return clone
+
+defaultCompare = (a, b) ->
+  if a.key > b.key
+  then 1 else -1

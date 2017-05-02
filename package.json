@@ -1,6 +1,6 @@
 {
   "name": "sortObject",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "js/sortObject",
   "plugins": [
     "lotus-coffee"
@@ -10,9 +10,9 @@
     "postinstall": "npm run build"
   },
   "dependencies": {
-    "Either": "aleclarson/Either#1.0.0",
-    "PureObject": "aleclarson/PureObject#1.0.1",
-    "SortedArray": "aleclarson/SortedArray#2.1.0",
-    "assertType": "aleclarson/assertType#2.0.1"
+    "Either": "aleclarson/Either#1.0.2",
+    "PureObject": "aleclarson/PureObject#1.0.2",
+    "SortedArray": "aleclarson/SortedArray#2.1.1",
+    "assertType": "aleclarson/assertType#2.0.2"
   }
 }
